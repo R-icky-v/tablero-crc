@@ -1,7 +1,8 @@
 #Infraestructura
-#1.- src/infraestructura/app.py
+#1.- src/infraestructura/app.py
 import datetime
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi.responses import FileResponse
 from ..dominio.tarjeta_crc import TarjetaCRC
 from ..dominio.sala import Sala
 from ..dominio.desarrollador import Desarrollador
@@ -21,6 +22,9 @@ iteracion    = Iteracion(100, 10)
 ritmo_equipo = RitmoEquipo(iteracion)
 desarrolladores: dict[str, Desarrollador] = {}
 
+@app.get("/")
+async def root():
+    return FileResponse("index.html")
 
 @app.websocket("/sala")
 async def endpoint_sala(websocket: WebSocket):

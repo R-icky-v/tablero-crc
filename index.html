@@ -1185,7 +1185,7 @@
 
       // ── WebSocket ─────────────────────────────────────────────────────
       function conectar() {
-        ws = new WebSocket("ws://localhost:8000/sala");
+        ws = new WebSocket("wss://tablero-crc.up.railway.app/sala");
 
         ws.onopen = () => {
           estadoEl.classList.add("conectado");
