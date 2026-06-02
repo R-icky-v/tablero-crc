@@ -1,4 +1,4 @@
-from src.dominio.tablero import Tablero
+from .tablero import Tablero
 
 # Gestiona los participantes y mantiene el tablero compartido activo
 
