@@ -1,4 +1,6 @@
+pytest
 fastapi
 uvicorn[standard]
 websockets
+httpx
 python-dotenv
