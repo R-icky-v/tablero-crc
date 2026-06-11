@@ -1,3 +1,4 @@
+#Archivo. index.html
 <!doctype html>
 <html lang="es">
   <head>
@@ -962,6 +963,322 @@
         background: #2a2a2a;
         border-radius: 2px;
       }
+
+      .iter-banner {
+        width: 100%;
+        flex-shrink: 0;
+      }
+
+      .wood-top,
+      .wood-bot {
+        height: 14px;
+        background:
+          repeating-linear-gradient(
+            92deg,
+            transparent 0,
+            transparent 18px,
+            rgba(0, 0, 0, 0.08) 18px,
+            rgba(0, 0, 0, 0.08) 19px
+          ),
+          linear-gradient(
+            180deg,
+            #8b4a25 0%,
+            #6b3a1f 40%,
+            #7a3e20 70%,
+            #5a2e10 100%
+          );
+      }
+      .wood-top {
+        border-bottom: 3px solid #3d1e0a;
+      }
+      .wood-bot {
+        border-top: 3px solid #3d1e0a;
+      }
+      .wood-top::before,
+      .wood-top::after,
+      .wood-bot::before,
+      .wood-bot::after {
+        content: "";
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 35%, #c8a060, #7a5020);
+        top: 0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      }
+      .wood-top::before,
+      .wood-bot::before {
+        left: 10px;
+      }
+      .wood-top::after,
+      .wood-bot::after {
+        right: 10px;
+      }
+
+      .chalk-banner {
+        background:
+          radial-gradient(
+            ellipse 80% 60% at 30% 40%,
+            rgba(255, 255, 255, 0.015) 0%,
+            transparent 60%
+          ),
+          #2d5a3d;
+        box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+        padding: 14px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 48px;
+        position: relative;
+        overflow: hidden;
+      }
+      .chalk-banner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 28px,
+          rgba(255, 255, 255, 0.018) 28px,
+          rgba(255, 255, 255, 0.018) 29px
+        );
+      }
+      .iter-block {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+      }
+      .iter-label {
+        font-family: "DM Mono", monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        color: rgba(180, 220, 170, 0.5);
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .iter-value {
+        font-family: "Caveat", cursive;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: rgba(230, 245, 220, 0.92);
+        line-height: 1;
+        min-width: 52px;
+        text-align: center;
+        animation: chalk-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      @keyframes chalk-in {
+        from {
+          opacity: 0;
+          transform: scale(0.7) rotate(-5deg);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) rotate(0deg);
+        }
+      }
+      .iter-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1.5px solid rgba(200, 230, 180, 0.2);
+        color: rgba(200, 230, 180, 0.7);
+        font-family: "DM Mono", monospace;
+        font-size: 0.9rem;
+        width: 26px;
+        height: 26px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.15s;
+      }
+      .iter-btn:hover {
+        background: rgba(255, 255, 255, 0.16);
+        color: rgba(220, 245, 200, 0.95);
+      }
+      .iter-btn:active {
+        transform: scale(0.92);
+      }
+      .iter-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .divider-chalk {
+        width: 1.5px;
+        height: 48px;
+        position: relative;
+        z-index: 2;
+        background: repeating-linear-gradient(
+          180deg,
+          rgba(200, 230, 180, 0.35) 0,
+          rgba(200, 230, 180, 0.35) 6px,
+          transparent 6px,
+          transparent 10px
+        );
+      }
+      .xp-badge {
+        font-family: "DM Mono", monospace;
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        color: rgba(200, 245, 90, 0.6);
+        border: 1px solid rgba(200, 245, 90, 0.2);
+        padding: 3px 10px;
+        border-radius: 3px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .btn-ia {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        background: rgba(0, 0, 0, 0.15);
+        border: 1.5px dashed rgba(0, 0, 0, 0.3);
+        color: rgba(0, 0, 0, 0.55);
+        font-family: "DM Mono", monospace;
+        font-size: 0.6rem;
+        padding: 3px 9px;
+        border-radius: 3px;
+        cursor: pointer;
+        letter-spacing: 0.06em;
+        transition: all 0.2s;
+      }
+      .btn-ia:hover {
+        background: rgba(0, 0, 0, 0.25);
+        color: rgba(0, 0, 0, 0.8);
+      }
+      .btn-ia:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+      .btn-ia:disabled .dot-ia {
+        animation: pulse-dot 1s ease infinite;
+      }
+      .dot-ia {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.4);
+        flex-shrink: 0;
+        transition: all 0.2s;
+      }
+      .btn-ia:hover .dot-ia {
+        background: rgba(0, 0, 0, 0.7);
+      }
+      @keyframes pulse-dot {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        50% {
+          transform: scale(1.5);
+          opacity: 1;
+        }
+      }
+      .ia-badge {
+        display: none;
+      }
+
+      .pomodoro-block {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        min-width: 120px;
+      }
+      .pom-time {
+        font-family: "Caveat", cursive;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: rgba(230, 245, 220, 0.92);
+        line-height: 1;
+        letter-spacing: 0.05em;
+        transition: color 0.4s;
+      }
+      .pom-time.descanso {
+        color: rgba(251, 191, 36, 0.85);
+      }
+      .pom-estado {
+        font-size: 0.6rem;
+        font-family: "DM Mono", monospace;
+        letter-spacing: 0.12em;
+        color: rgba(180, 220, 170, 0.5);
+        text-transform: uppercase;
+      }
+      .pom-controls {
+        display: flex;
+        gap: 6px;
+        margin-top: 4px;
+      }
+      .pom-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1.5px solid rgba(200, 230, 180, 0.2);
+        color: rgba(200, 230, 180, 0.7);
+        font-size: 0.85rem;
+        width: 26px;
+        height: 26px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.15s;
+      }
+      .pom-btn:hover {
+        background: rgba(255, 255, 255, 0.16);
+        color: rgba(220, 245, 200, 0.95);
+      }
+
+      .resumen-block {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .btn-resumen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1.5px dashed rgba(200, 230, 180, 0.25);
+        color: rgba(200, 230, 180, 0.7);
+        font-family: "DM Mono", monospace;
+        font-size: 0.65rem;
+        padding: 7px 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        letter-spacing: 0.08em;
+        transition: all 0.2s;
+        min-width: 80px;
+      }
+
+      .btn-resumen:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(200, 230, 180, 0.5);
+        color: rgba(220, 245, 200, 0.95);
+      }
+
+      .btn-resumen:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+        animation: parpadeando 1.2s infinite;
+      }
+
+      .btn-resumen #resumen-icon {
+        font-size: 1.1rem;
+      }
     </style>
   </head>
   <body>
@@ -979,6 +1296,65 @@
         <span id="conn-text">desconectado</span>
       </div>
     </header>
+
+    <div class="iter-banner">
+      <div class="wood-top" style="position: relative"></div>
+      <div class="chalk-banner" id="chalk-banner">
+        <div class="iter-block">
+          <div>
+            <div class="iter-label">iteración</div>
+            <div class="iter-value" id="val-iter">1</div>
+          </div>
+          <div class="iter-controls">
+            <button class="iter-btn" onclick="cambiarIter(1)">▲</button>
+            <button class="iter-btn" onclick="cambiarIter(-1)">▼</button>
+          </div>
+        </div>
+        <div class="divider-chalk"></div>
+        <div class="iter-block">
+          <div>
+            <div class="iter-label">día</div>
+            <div class="iter-value" id="val-dia">
+              1 <span style="font-size: 1.1rem; opacity: 0.5">/ 10</span>
+            </div>
+          </div>
+          <div class="iter-controls">
+            <button class="iter-btn" onclick="cambiarDia(1)">▲</button>
+            <button class="iter-btn" onclick="cambiarDia(-1)">▼</button>
+          </div>
+        </div>
+        <div class="divider-chalk"></div>
+        <div class="pomodoro-block">
+          <div class="iter-label">pomodoro · sesión</div>
+          <div class="pom-time" id="pom-time">25:00</div>
+          <div class="pom-estado" id="pom-estado">trabajo</div>
+          <div class="pom-controls">
+            <button
+              class="pom-btn"
+              id="pom-btn-start"
+              onclick="pomodoroToggle()"
+            >
+              ▶
+            </button>
+            <button class="pom-btn" onclick="pomodoroReset()">↺</button>
+          </div>
+        </div>
+        <div class="divider-chalk"></div>
+
+        <div class="resumen-block">
+          <div class="iter-label">sesión</div>
+          <button
+            class="btn-resumen"
+            id="btn-resumen"
+            onclick="generarResumen()"
+          >
+            <span id="resumen-icon">📋</span>
+            <span id="resumen-txt">resumen</span>
+          </button>
+        </div>
+      </div>
+      <div class="wood-bot" style="position: relative"></div>
+    </div>
 
     <div class="layout">
       <!-- ════ IZQUIERDA: PIZARRA ════ -->
@@ -1084,6 +1460,7 @@
               style="width: 80px; flex: none"
             />
           </div>
+
           <button class="btn-exec" id="btn-registrar" disabled>
             ⏎ registrar_tarea()
           </button>
@@ -1092,6 +1469,184 @@
     </div>
 
     <script>
+      if (msg.evento === "config") {
+        GROQ_KEY = msg.groq_key;
+      }
+      const POM_TRABAJO = 25 * 60;
+      const POM_DESCANSO = 5 * 60;
+      let pomSegundos = POM_TRABAJO;
+      let pomInterval = null;
+      let pomEnDescanso = false;
+      let contribucionesActuales = {};
+
+      function pomodoroToggle() {
+        const btn = document.getElementById("pom-btn-start");
+        if (pomInterval) {
+          clearInterval(pomInterval);
+          pomInterval = null;
+          btn.textContent = "▶";
+        } else {
+          pomInterval = setInterval(pomodoroTick, 1000);
+          btn.textContent = "⏸";
+        }
+      }
+
+      function pomodoroTick() {
+        pomSegundos--;
+        if (pomSegundos <= 0) {
+          pomEnDescanso = !pomEnDescanso;
+          pomSegundos = pomEnDescanso ? POM_DESCANSO : POM_TRABAJO;
+          const estado = document.getElementById("pom-estado");
+          const tiempo = document.getElementById("pom-time");
+          estado.textContent = pomEnDescanso ? "descanso" : "trabajo";
+          tiempo.classList.toggle("descanso", pomEnDescanso);
+          log(
+            pomEnDescanso
+              ? "☕  descanso · 5 minutos — rotad roles driver/navigator"
+              : "⚡  trabajo · 25 minutos",
+            pomEnDescanso ? "t-yellow" : "t-green",
+          );
+          logSep();
+        }
+        actualizarPomodoro();
+      }
+
+      function pomodoroReset() {
+        clearInterval(pomInterval);
+        pomInterval = null;
+        pomEnDescanso = false;
+        pomSegundos = POM_TRABAJO;
+        document.getElementById("pom-btn-start").textContent = "▶";
+        document.getElementById("pom-estado").textContent = "trabajo";
+        document.getElementById("pom-time").classList.remove("descanso");
+        actualizarPomodoro();
+      }
+
+      function actualizarPomodoro() {
+        const m = String(Math.floor(pomSegundos / 60)).padStart(2, "0");
+        const s = String(pomSegundos % 60).padStart(2, "0");
+        document.getElementById("pom-time").textContent = `${m}:${s}`;
+      }
+
+      async function generarResumen() {
+        const btn = document.getElementById("btn-resumen");
+        const iconEl = document.getElementById("resumen-icon");
+        const txtEl = document.getElementById("resumen-txt");
+
+        // estado cargando
+        btn.disabled = true;
+        iconEl.textContent = "⏳";
+        txtEl.textContent = "generando";
+
+        // recopilar datos de la sesión
+        const tarjetasInfo = tarjetas.map((t) => ({
+          clase: t.nombre_clase,
+          responsabilidades: t.responsabilidades,
+          colaboradores: t.colaboradores,
+        }));
+
+        // pedir contribuciones actuales al servidor antes de generar
+        pedirContribuciones();
+        await new Promise((r) => setTimeout(r, 600));
+
+        const prompt = `
+      Eres un asistente de pair programming.
+      Genera un resumen profesional y conciso de esta sesión de trabajo en español.
+
+      DATOS DE LA SESIÓN:
+      - Iteración: ${iterState.iter}, Día: ${iterState.dia} de ${iterState.diasTotal}
+      - Duración pomodoro activo: ${document.getElementById("pom-time").textContent}
+
+      TABLERO CRC — clases diseñadas:
+      ${
+        tarjetasInfo.length === 0
+          ? "  Sin tarjetas creadas en esta sesión"
+          : tarjetasInfo
+              .map(
+                (t) =>
+                  `  • ${t.clase}\n    Responsabilidades: ${t.responsabilidades.join(", ") || "sin definir"}\n    Colaboradores: ${t.colaboradores.join(", ") || "sin definir"}`,
+              )
+              .join("\n")
+      }
+
+      TRACKER — avance del equipo:
+        • Porcentaje completado: ${document.getElementById("stat-avance").textContent}
+        • Puntos acumulados: ${document.getElementById("prog-pts").textContent}
+        • Déficit: ${deficitRow.style.display !== "none" ? document.getElementById("stat-deficit").textContent : "ninguno"}
+        • Día actual: ${iterState.dia} de ${iterState.diasTotal}
+
+      CONTRIBUCIONES POR DESARROLLADOR:
+      ${
+        Object.keys(contribucionesActuales).length === 0
+          ? "  Sin tareas registradas en esta sesión"
+          : Object.entries(contribucionesActuales)
+              .map(
+                ([nombre, data]) =>
+                  `  • ${nombre}: ${data.puntos_total ?? data.puntos_hoy ?? 0} pts — tarjetas implementadas: ${data.tarjetas_implementadas.join(", ") || "ninguna"}`,
+              )
+              .join("\n")
+      }
+
+      Estructura del resumen (máximo 5 puntos, directo al grano):
+      1. Qué se diseñó en el tablero CRC
+      2. Qué se implementó (tareas completadas)
+      3. Estado del avance respecto a la iteración
+      4. Puntos pendientes o riesgos detectados
+      5. Recomendación para la próxima sesión
+      `;
+
+        try {
+          const res = await fetch(
+            "https://api.groq.com/openai/v1/chat/completions",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${GROQ_KEY}`,
+              },
+              body: JSON.stringify({
+                model: "llama-3.3-70b-versatile",
+                messages: [{ role: "user", content: prompt }],
+                temperature: 0.5,
+              }),
+            },
+          );
+
+          const data = await res.json();
+          if (!data.choices?.[0])
+            throw new Error(data.error?.message || "Sin respuesta");
+          const resumen = data.choices[0].message.content;
+
+          // mostrar resumen en el terminal
+          logSep();
+          log("▓▓ RESUMEN DE SESIÓN — IA ▓▓", "t-accent");
+          logSep();
+          resumen.split("\n").forEach((linea) => {
+            if (!linea.trim()) return;
+            const cls =
+              linea.startsWith("1.") ||
+              linea.startsWith("2.") ||
+              linea.startsWith("3.") ||
+              linea.startsWith("4.") ||
+              linea.startsWith("5.")
+                ? "t-text"
+                : "t-dim";
+            log(linea, cls);
+          });
+          logSep();
+          log("✓  resumen generado correctamente", "t-green");
+
+          // scroll al final del terminal
+          termOut.scrollTop = termOut.scrollHeight;
+        } catch (err) {
+          log(`✗  error al generar resumen: ${err.message}`, "t-red");
+        } finally {
+          btn.disabled = false;
+          iconEl.textContent = "📋";
+          txtEl.textContent = "resumen";
+        }
+      }
+
       // ── Partículas de tiza ────────────────────────────────────────────
       const dustContainer = document.getElementById("chalk-dust");
       const dustCount = 18;
@@ -1141,7 +1696,6 @@
       // ── Estado local ──────────────────────────────────────────────────
       const tarjetas = [];
       let ws = null;
-      let diasTranscurridos = 1;
 
       // ── DOM refs ──────────────────────────────────────────────────────
       const tableroEl = document.getElementById("tablero");
@@ -1183,9 +1737,54 @@
         termOut.appendChild(hr);
       }
 
+      const iterState = { iter: 1, dia: 1, diasTotal: 10, pts: 100 };
+
+      function animarBanner() {
+        ["val-iter", "val-dia"].forEach((id) => {
+          // ← quitamos val-pts
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.style.animation = "none";
+          setTimeout(() => {
+            el.style.animation = "chalk-in .4s cubic-bezier(.34,1.56,.64,1)";
+          }, 10);
+        });
+        document.getElementById("val-iter").textContent = iterState.iter;
+        document.getElementById("val-dia").innerHTML =
+          `${iterState.dia} <span style="font-size:1.1rem;opacity:.5">/ ${iterState.diasTotal}</span>`;
+      }
+      function cambiarIter(delta) {
+        iterState.iter = Math.max(1, iterState.iter + delta);
+        animarBanner();
+      }
+
+      function cambiarDia(delta) {
+        iterState.dia = Math.max(
+          1,
+          Math.min(iterState.diasTotal, iterState.dia + delta),
+        );
+        animarBanner();
+        pedirAvance(); // ← actualiza déficit automáticamente al cambiar el día
+      }
+
+      // partículas de tiza en el banner
+      const chalkBanner = document.getElementById("chalk-banner");
+      for (let i = 0; i < 14; i++) {
+        const p = document.createElement("div");
+        p.className = "dust-particle";
+        const sz = Math.random() * 3 + 1;
+        const dx = (Math.random() - 0.5) * 50;
+        p.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random() * 100}%;bottom:${Math.random() * 30}px;--dx:${dx}px;animation-duration:${Math.random() * 8 + 6}s;animation-delay:${Math.random() * 10}s;opacity:0;position:absolute`;
+        chalkBanner.appendChild(p);
+      }
+
       // ── WebSocket ─────────────────────────────────────────────────────
       function conectar() {
-        ws = new WebSocket("wss://tablero-crc-production.up.railway.app/sala");
+        const wsUrl =
+          window.location.hostname === "localhost"
+            ? "ws://localhost:8000/sala"
+            : "wss://tablero-crc-production.up.railway.app/sala";
+        ws = new WebSocket(wsUrl);
 
         ws.onopen = () => {
           estadoEl.classList.add("conectado");
@@ -1211,6 +1810,10 @@
           const msg = JSON.parse(e.data);
 
           if (msg.evento === "sala_actual") {
+            // ← limpiar estado antes de recargar para evitar duplicados
+            tarjetas.length = 0;
+            while (selectTarj.options.length > 1) selectTarj.remove(1);
+
             msg.tarjetas.forEach((t) => agregarTarjetaLocal(t));
             renderizarTablero();
             log(
@@ -1247,13 +1850,14 @@
 
           if (msg.evento === "avance") {
             const pct = Math.round(msg.porcentaje);
+            const total = msg.puntos_total ?? msg.puntos_hoy ?? 0; // ← fallback seguro
+
             statAvance.textContent = `${pct}%`;
             statAvance.className = `stat-value ${pct >= 80 ? "stat-ok" : "stat-neutral"}`;
             progressFill.style.width = `${Math.min(pct, 100)}%`;
-            const ptsHoy = msg.puntos_hoy ?? 0;
-            progPts.textContent = `${ptsHoy} / 100 pts`;
+            progPts.textContent = `${total} / 100 pts`;
 
-            if (msg.deficit > 0) {
+            if (msg.deficit > 0 && total > 0) {
               deficitRow.style.display = "flex";
               statDeficit.textContent = `${Math.round(msg.deficit)} pts`;
               log(
@@ -1266,6 +1870,7 @@
           }
 
           if (msg.evento === "contribuciones") {
+            contribucionesActuales = msg.contribuciones;
             renderizarContribs(msg.contribuciones);
           }
         };
@@ -1276,7 +1881,7 @@
           ws.send(
             JSON.stringify({
               accion: "consultar_avance",
-              dias_transcurridos: diasTranscurridos,
+              dias_transcurridos: iterState.dia, // ← usa el día del banner
             }),
           );
       }
@@ -1322,6 +1927,87 @@
         );
       }
 
+      async function sugerirConIA(indice) {
+        const tarjeta = tarjetas[indice];
+        const btnIA = document.getElementById(`btn-ia-${indice}`);
+        const card = document.querySelector(`[data-indice="${indice}"]`);
+        const taResp = card.querySelector(".ta-resp");
+        const taColab = card.querySelector(".ta-colab");
+
+        // estado cargando
+        btnIA.disabled = true;
+        btnIA.innerHTML = '<span class="dot-ia"></span> pensando';
+        log(
+          `✦  IA generando sugerencias para "${tarjeta.nombre_clase}"...`,
+          "t-accent",
+        );
+
+        const prompt = `
+      Eres un experto en diseño orientado a objetos y tarjetas CRC.
+      Para la clase "${tarjeta.nombre_clase}" dentro de un sistema de software colaborativo,
+      sugiere en español:
+      - 3 a 5 responsabilidades concretas (qué hace la clase)
+      - 2 a 4 colaboradores (otras clases con las que interactúa)
+
+      Responde SOLO en JSON, sin texto adicional, sin bloques de código:
+      {"responsabilidades":["..."],"colaboradores":["..."]}
+      `;
+
+        try {
+          const res = await fetch(
+            "https://api.groq.com/openai/v1/chat/completions",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${GROQ_KEY}`,
+              },
+              body: JSON.stringify({
+                model: "llama-3.3-70b-versatile",
+                messages: [{ role: "user", content: prompt }],
+                temperature: 0.7,
+              }),
+            },
+          );
+
+          const data = await res.json();
+          console.log("Groq response:", JSON.stringify(data));
+
+          if (!data.choices || !data.choices[0]) {
+            const motivo = data.error?.message || JSON.stringify(data);
+            throw new Error(motivo);
+          }
+
+          const texto = data.choices[0].message.content;
+          const limpio = texto.replace(/```json|```/g, "").trim();
+          const parsed = JSON.parse(limpio);
+
+          // llenar los textareas con las sugerencias
+          taResp.value = parsed.responsabilidades.join("\n");
+          taColab.value = parsed.colaboradores.join("\n");
+
+          // animación chalk en la tarjeta
+          card.querySelector(".tarjeta-inner").style.transition =
+            "box-shadow .3s";
+          card.querySelector(".tarjeta-inner").style.boxShadow =
+            "0 0 0 2px rgba(200,245,90,.5), 2px 4px 8px rgba(0,0,0,.35)";
+          setTimeout(() => {
+            card.querySelector(".tarjeta-inner").style.boxShadow = "";
+          }, 1500);
+
+          log(
+            `✓  sugerencias IA aplicadas a "${tarjeta.nombre_clase}"`,
+            "t-green",
+          );
+          logSep();
+        } catch (err) {
+          log(`✗  error al consultar IA: ${err.message}`, "t-red");
+        } finally {
+          btnIA.disabled = false;
+          btnIA.innerHTML = '<span class="dot-ia"></span> ia';
+        }
+      }
+
       function agregarTarjetaLocal(t) {
         tarjetas.push({
           nombre_clase: t.nombre_clase,
@@ -1348,27 +2034,36 @@
         card.className = "tarjeta";
         card.dataset.indice = i;
         card.innerHTML = `
-      <div class="pin"></div>
-      <div class="tarjeta-inner">
-        <div class="postit-strip"></div>
-        <div class="tarjeta-nombre">${t.nombre_clase}</div>
-        <div class="tarjeta-cuerpo">
-          <div class="tarjeta-col">
-            <div class="col-label">Responsabilidades</div>
-            <textarea class="ta-resp" placeholder="Una por línea...">${t.responsabilidades.join("\n")}</textarea>
+        <div class="pin"></div>
+        <div class="tarjeta-inner">
+          <div class="postit-strip"></div>
+          <div class="tarjeta-nombre">${t.nombre_clase}</div>
+          <div class="tarjeta-cuerpo">
+            <div class="tarjeta-col">
+              <div class="col-label">Responsabilidades</div>
+              <textarea class="ta-resp" placeholder="Una por línea...">${t.responsabilidades.join("\n")}</textarea>
+            </div>
+            <div class="tarjeta-col">
+              <div class="col-label">Colaboradores</div>
+              <textarea class="ta-colab" placeholder="Una por línea...">${t.colaboradores.join("\n")}</textarea>
+            </div>
           </div>
-          <div class="tarjeta-col">
-            <div class="col-label">Colaboradores</div>
-            <textarea class="ta-colab" placeholder="Una por línea...">${t.colaboradores.join("\n")}</textarea>
+          <div class="tarjeta-footer">
+            <button class="btn-ia" id="btn-ia-${i}">
+              <span class="dot-ia"></span> ia
+            </button>
+            <button class="btn-guardar-tarjeta">guardar</button>
           </div>
-        </div>
-        <div class="tarjeta-footer">
-          <button class="btn-guardar-tarjeta">guardar</button>
-        </div>
-      </div>`;
+        </div>`;
+
         card
           .querySelector(".btn-guardar-tarjeta")
           .addEventListener("click", () => enviarEdicion(i));
+
+        card
+          .querySelector(`#btn-ia-${i}`)
+          .addEventListener("click", () => sugerirConIA(i));
+
         return card;
       }
 

@@ -1,6 +1,8 @@
 #Infraestructura
 #1.- src/infraestructura/app.py
 import datetime
+import os
+from dotenv import load_dotenv
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import FileResponse
 from ..dominio.tarjeta_crc import TarjetaCRC
@@ -10,6 +12,9 @@ from ..dominio.tarea_completada import TareaCompletada
 from ..dominio.iteracion import Iteracion
 from ..dominio.ritmo_equipo import RitmoEquipo
 from .gestor_conexiones import GestorConexiones
+
+load_dotenv()
+GROQ_KEY = os.environ.get("GROQ_KEY", "")
 
 app = FastAPI()
 
@@ -40,7 +45,15 @@ async def endpoint_sala(websocket: WebSocket):
             "colaboradores":     t.colaboradores
         }
         for t in tablero.obtener_tarjetas()
+
+
     ]
+
+    await websocket.send_json({
+        "evento":    "config",
+        "groq_key":  GROQ_KEY
+    })
+    
     await websocket.send_json({"evento": "sala_actual", "tarjetas": tarjetas_actuales})
 
     try:
@@ -102,10 +115,11 @@ async def endpoint_sala(websocket: WebSocket):
                 })
 
             elif accion == "consultar_contribuciones":
-                # CS2 — enviar contribuciones de cada desarrollador
+                # CS2 — puntos totales de la iteración por desarrollador
                 contribuciones = {
                     nombre: {
                         "puntos_hoy":             dev.sumar_puntos_hoy(),
+                        "puntos_total":           dev.sumar_puntos_total(),  # ← nuevo
                         "tarjetas_implementadas": dev.tarjetas_implementadas()
                     }
                     for nombre, dev in desarrolladores.items()
@@ -116,14 +130,17 @@ async def endpoint_sala(websocket: WebSocket):
                 })
 
             elif accion == "consultar_avance":
-                # CS3, CS4 — enviar porcentaje y déficit al solicitante
+                # CS3, CS4 — total acumulado en iteración, no solo hoy
                 dias = data.get("dias_transcurridos", 1)
                 await websocket.send_json({
-                    "evento":     "avance",
-                    "porcentaje": ritmo_equipo.calcular_porcentaje_avance(),
-                    "deficit":    ritmo_equipo.calcular_deficit(dias),
-                    "puntos_hoy": ritmo_equipo.puntos_equipo_hoy()
+                    "evento":       "avance",
+                    "porcentaje":   ritmo_equipo.calcular_porcentaje_avance(),
+                    "deficit":      ritmo_equipo.calcular_deficit(dias),
+                    "puntos_hoy":   ritmo_equipo.puntos_equipo_hoy(),
+                    "puntos_total": ritmo_equipo.puntos_totales_equipo()  # ← nuevo
                 })
+            
+            
 
     except WebSocketDisconnect:
         # CA5 — desarrollador sale, el tablero y sus tarjetas permanecen

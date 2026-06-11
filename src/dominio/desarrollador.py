@@ -13,11 +13,15 @@ class Desarrollador:
     def registrar_tarea(self, tarea: TareaCompletada):
         self.tareas.append(tarea)
 
-    # CS2 — retorna puntos acumulados del desarrollador en el día de hoy
+    # CS2 — puntos acumulados hoy (vista diaria)
     def sumar_puntos_hoy(self) -> int:
         hoy = datetime.date.today()
         return sum(t.puntos for t in self.tareas if t.fecha == hoy)
 
-    # CS2 — retorna las tarjetas CRC implementadas por el desarrollador
+    # CS2 — puntos acumulados en toda la iteración
+    def sumar_puntos_total(self) -> int:
+        return sum(t.puntos for t in self.tareas)
+
+    # CS2 — tarjetas CRC implementadas en toda la iteración
     def tarjetas_implementadas(self) -> list:
         return [t.tarjeta_crc for t in self.tareas]

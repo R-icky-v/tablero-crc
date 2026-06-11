@@ -1,3 +1,4 @@
+#src/dominio/tarea_completada.py
 import datetime
 
 # CS1 — representa una tarea finalizada por un desarrollador
